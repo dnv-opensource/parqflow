@@ -51,9 +51,10 @@ import parqflow as pf
 ## Reading with filters
 
 ```python
+Given a path to a parquet file it returns the contents of b'cfd' as a dictionary​
 # this example only works with an earlier version of parqflow, see 'levels' above for supported levels
 
-folder = Path(r'C:\minuano\cfd_file_format_proposal_sample_files')
+folder = Path(r'C:\cfd_file_format_proposal_sample_files')
 
 all_possible_filters = {
     'project': ['Project'],
@@ -78,6 +79,7 @@ pf.filter_dataset(folder, filters)
 ```
 
 ## Reading metadata (requires the pf library)
+Given a folder and a `filters` dictionary it returns every matching column as a pandas.DataFrame
 
 ```python
 df = pf.filter_dataset(folder, filters)
@@ -90,6 +92,9 @@ max_x, max_y = metadata['max_x'], metadata['max_y']
 ```
 
 ## Filtering points at turbine positions
+
+Given a list of points of interest (POIs) (turbine coordinates) it returns, for each POI, the closest grid row​
+For a small grid of 100,000 grid points and finding 10 million turbines randomly scattered this search takes around 4 seconds​
 
 ```python
 pois = pd.DataFrame({
