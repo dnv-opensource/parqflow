@@ -1,6 +1,8 @@
 # parqflow
 A new fast-to-read and highly compressed wind flow format for sharing wind speedups.
 
+Author: diogo.friggo@dnv.com
+
 ## Format description
 
 Parqflow files hold flow timeseries data in Apache's .parquet format
